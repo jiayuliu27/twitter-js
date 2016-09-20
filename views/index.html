@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>{{ title }}</h1>
+	<p>This is a bare-bones template</p>
+	<ul>
+		{% for person in people %}
+		<li>{{ person.name }}</li>
+		{% endfor %}
+	</ul>
+	<script type="text/javascript" src="../node_modules/nunjucks/browser/nunjucks.min.js"></script>
+</body>
+</html>

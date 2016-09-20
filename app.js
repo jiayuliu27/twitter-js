@@ -4,12 +4,35 @@ var app = express();
 // other dependencies
 var chalk = require("chalk");
 var morgan = require("morgan");
+var nunjucks = require("nunjucks");
 
 
 var errorStyle = chalk.bold.red;
 var requestStyle = chalk.blue.underline;
 var responseStyle = chalk.yellow;
 var messageStyle = chalk.gray;
+
+var locals = {
+	title: "Example",
+	people: [
+		{name: "Gandolf"},
+		{name: "Frodo"},
+		{name: "Hermione"}
+	]
+}
+
+nunjucks.render("views/index.html", locals, function(err, output) {
+	if(err) {
+		console.log(errorStyle(err.toString()));
+		throw err;
+	}
+	console.log(output);
+});
+
+nunjucks.configure("views");
+app.set("view engine", "html");
+app.engine("html", nunjucks.render);
+
 
 app.use(morgan("combined"));
 // these requests are processed in order
