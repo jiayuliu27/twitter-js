@@ -4,11 +4,15 @@
   "description": "a cool tweet app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "nodemon app.js",
+    "serve": "node app.js"
   },
   "author": "Jia-yu (Tiffany) Liu",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.14.0"
+    "chalk": "^1.1.3",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0"
   }
 }
